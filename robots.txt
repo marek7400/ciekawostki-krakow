@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ciekawostkiokrakowie.netlify.app/sitemap.xml
