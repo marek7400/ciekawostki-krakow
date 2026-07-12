@@ -18,14 +18,41 @@
             margin: 0;
             padding: 0;
         }
+        
+        /* Styl nagłówka */
         header {
             background-color: var(--primary-color);
             color: #fff;
-            padding: 30px 20px;
-            text-align: center;
+            padding: 10px 5px;
         }
+        
+        /* Kontener wewnętrzny łączący obrazek z tekstem */
+        header .header-inner {
+            max-width: 1250px; /* 900px tekst + 320px obrazek + gap */
+            margin: 0 auto;
+            display: flex;
+            align-items: center; /* Środkowanie w pionie zapobiega ucinaniu */
+            gap: 30px;
+        }
+        
+        /* Obrazek o stałej, dobrej szerokości bez ucinania krawędzi */
+        header .header-image {
+            width: 320px; /* Poprzednia, dobra wielkość */
+            aspect-ratio: 16 / 9; /* Idealne proporcje 16:9 - obraz nie jest ucięty */
+            object-fit: cover;
+            border-radius: 8px; /* Estetyczne zaokrąglenie rogów */
+            flex-shrink: 0;
+        }
+        
+        /* Zachowanie oryginalnej szerokości tekstu */
+        header .header-text-content {
+            max-width: 900px;
+            width: 100%;
+            text-align: left;
+        }
+
         h1 {
-            margin: 0;
+            margin: 0 0 10px 0;
             font-size: 2.2em;
         }
         .container {
@@ -115,19 +142,40 @@
             transform: none !important;
             transition: none !important;
         }
+
+        /* Układ responsywny dla urządzeń mobilnych */
+        @media (max-width: 768px) {
+            header .header-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            header .header-image {
+                width: 100%;
+                max-width: 320px; /* Zapobiega nadmiernemu rozciąganiu na tabletach */
+            }
+            header .header-text-content {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-	<div style="max-width: 900px; margin: 0 auto; text-align: left;">
-        <h1>Ciekawostki o Krakowie</h1>
-        <p>Zbiór ciekawostek o Krakowie, ciekawe miejsca i legendy.<br>
-Sam tekst, bez obrazków, subiektywny, wybiórczy, ciekawostki: banalne, ale też mało znane, śmieszne.
-<br>
-*niektóre informacje mogą być błędne (halucynacje autora lub AI) lub nieaktualne (lipiec 2026)<br>
-*nie dodano ciekawostek już opublikowanych w filmach z serii "Kraków Nieznany" i "Kraków Archiwalnie"</p>
-    </div></header>
+        <div class="header-inner">
+            <!-- Miejsce na Twój obrazek -->
+            <img src="YouTube_Miniaturka.jpg" alt="Kraków ciekawostki i legendy" class="header-image">
+            <div class="header-text-content">
+                <h1>Ciekawostki o Krakowie</h1>
+                <p>Zbiór ciekawostek o Krakowie, ciekawe miejsca i legendy.<br>
+                Sam tekst, bez obrazków, subiektywny, wybiórczy, ciekawostki: banalne, ale też mało znane, śmieszne.
+                <br>
+                *niektóre informacje mogą być błędne (halucynacje autora lub AI) lub nieaktualne (lipiec 2026)<br>
+                *nie dodano ciekawostek już opublikowanych w filmach z serii "Kraków Nieznany" i "Kraków Archiwalnie"</p>
+            </div>
+        </div>
+    </header>
 
     <div class="container">
         <div id="content">
